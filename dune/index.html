@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="htmlSet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="">
+    <link rel="shortcut icon" href="./medias/favicon/favicon.ico" type="image/x-icon">
+    <script src="./script/jquery-3.5.1.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="./script/data_cinema.geojson"></script>
+    <title>D U N E</title>
+</head>
+
+<body>
+
+    <!-- ######## HEADER ###### -->
+
+    <header class="headerSet">
+
+        <!-- ######## MENU BURGER ####### -->
+        <!-- ######## CHECK BOX ###### -->
+        <input type="checkbox" class="checkBurger" id="menu">
+
+        <!-- ######## NAV MENU BURGER ###### -->
+        <nav class="navBurger" id="navMenu">
+            <div class="divaBurger"><a class="lienMenuBurger" id="menuA" href="#accueil">ACCUEIL</a></div>
+            <div class="divaBurger"><a class="lienMenuBurger" id="menuAP" href="#about">ABOUT</a></div>
+            <div class="divaBurger"><a class="lienMenuBurger" id="menuC" href="#perso">CHARACTER</a></div>
+            <div class="divaBurger"><a class="lienMenuBurger" id="menuV" href="#videoImg">VIDEO & IMAGE</a></div>
+            <div class="divaBurger"><a class="lienMenuBurger" id="menuCAR" href="#carte">MAP</a></div>
+        </nav>
+
+        <!-- ######## ICONE MENU BURGER ###### -->
+        <label for="menu">
+            <div class="divIconeMenuBurger">
+                <div class="barreMenuBurger barreHautBurger"></div>
+                <div class="barreMenuBurger barreMilieuBurger"></div>
+                <div class="barreMenuBurger barreBasBurger"></div>
+            </div>
+        </label>
+    </header>
+
+    <!-- ######## MAIN ###### -->
+
+    <main>
+
+        <!-- ######## ACCUEIL ###### -->
+        <div class="accueil divNormal parallax" style="background-position: 0px;" id="accueil">
+
+            <!-- ######## TEXTE DUNE ONLY ###### -->
+            <div class="divOnly">
+                <img src="./medias/poster/dune_flat.png" alt="title_dune" class="titleDune">
+                <p class="pOnly">ONLY IN CINEMA</p>
+            </div>
+
+            <!-- ######## VIDEO YOUTUBE ET BARRE ###### -->
+            <div class="divVideo">
+                <div class="divVideohr">
+                    <div id="videoYT"></div>
+                    <hr class="hrVideo">
+                </div>
+            </div>
+        </div>
+
+        <!-- ######## ABOUT ###### -->
+        <div class="about divNormal parallax" style="background-position: 0px;" id="about">
+            <div class="divAbout">
+                <div class="divImgAbout">
+                    <img src="./medias/images/denis_villeneuve.webp" alt="" class="imgAbout">
+                </div>
+                <p class="titleAbout">ABOUT</p>
+                <p class="resumeAbout">RESUME & SYNOPSIS</p>
+            </div>
+            <div class="divAboutText">
+                <div class="divHrAbout">
+                    <hr class="hrAbout">
+                </div>
+                <p class="pAbout">Dune is an upcoming science fiction film directed by Denis Villeneuve with a
+                    screenplay by Jon Spaihts, Villeneuve, and Eric Roth. The film is an international co-production of
+                    Canada, Hungary, the United Kingdom, and the United States. It is the first of a planned two-part
+                    adaptation of the 1965 novel of the same name by Frank Herbert, which will cover roughly the first
+                    half of the book. The film stars an ensemble cast including Timothée Chalamet, Rebecca Ferguson,
+                    Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave Bautista, Stephen McKinley Henderson, Zendaya,
+                    David Dastmalchian, Chang Chen, Sharon Duncan-Brewster, Charlotte Rampling, Jason Momoa, and Javier
+                    Bardem. <br><br>
+                    In the far future of humanity, Duke Leto Atreides accepts stewardship of the dangerous desert planet
+                    Arrakis, also known as Dune, the only source of the most valuable substance in the universe, "the
+                    spice", a drug which extends human life, provides superhuman levels of thought, and makes
+                    faster-than-light travel possible. Though Leto knows the opportunity is an intricate trap set by his
+                    enemies, he takes his Bene Gesserit concubine Lady Jessica, young son and heir Paul, and most
+                    trusted advisers to Arrakis. Leto takes control of the spice mining operation, which is made
+                    perilous by the presence of giant sandworms. A bitter betrayal leads Paul and Jessica to the Fremen,
+                    natives of Arrakis who live in the deep desert.
+                    <br><br>
+                    Source © Wikipedia
+                </p>
+            </div>
+        </div>
+
+        <!-- ######## PERSONNAGE ###### -->
+        <div class="perso divNormal parallax" style="background-position: 0px;" id="perso">
+            <div class="divAbout">
+                <p class="titleAbout titleCharc">CHARACTER</p>
+                <p class="resumeAbout resumeCharc">NAME & HISTORY</p>
+            </div>
+            <!-- ######## CARROUSSEL ET FLECHE ###### -->
+            <div class="divCharc">
+
+                <!-- ######## FLECHE ###### -->
+                <div class="divNP">
+                    <div class="nextPrev">
+                        <div class="Prev">
+                            <p class="textPrevNext">Prev</p>
+                        </div>
+                        <div class="Next">
+                            <p class="textPrevNext">Next</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ######## CARROUSSEL ###### -->
+                <div class="divCarou">
+
+                    <!-- ######## IMAGE ET TEXTE PERSOONAGE ###### -->
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/paul_atreides.jpg" alt="0" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Paul Astreides</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">Paul Atreides, aka Muad'Dib, Usul, and The Preacher (10175 AG- 10219 AG), is
+                                a central
+                                character to the Dune series. He was born on the planet Caladan as the son of Duke Leto
+                                Atreides I and his Bene Gesserit concubine Lady Jessica. He was also the older brother
+                                of Alia Atreides. He married Bene Gesserit trained Irulan Corrino, but did not produce an heir by her.
+                                With his Fremen concubine Chani Kynes, he was father of the twins Ghanima and Leto Atreides
+                                II, the God-Emperor. Last Duke of House Atreides, leader of the Fremen, and first ruler of the Atreides
+                                Empire, Paul was considered the Kwisatz Haderach: the powerful prescient being, long sought by
+                                the Bene Gesserit and product of their lengthy breeding program. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/chani.jpg" alt="1" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Chani</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">Chani Kynes, also known by her intimate name Sihaya, (10177 AG - 10205 AG)
+                                was the Fremen bound concubine of Paul Atreides, and the mother of his three children:
+                                Leto Atreides II the Elder, and the twins Leto Atreides II the Younger, God Emperor of
+                                Dune and Ghanima Atreides. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/lady_jessica.jpg" alt="2" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Lady Jessica</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">Lady Jessica of the Atreides (10154 AG-10256 AG) was the official concubine
+                                of Duke Leto Atreides I, and the mother of his son Emperor Paul Atreides. She was also a
+                                Reverend Mother of the Bene Gesserit Sisterhood. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/liet_kynes.jpg" alt="3" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Liet Kynes</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Liet Kynes, (10156 AG - 10191 AG) was the son of Pardot Kynes and the father of Chani
+                                (who became the concubine of Emperor Paul Atreides). Liet was a prominent imperial
+                                planetologist/ecologist of Arrakis, the Judge of the Change, and the secret leader of
+                                the Fremen at the time House Atreides took control of Arrakis in 10191 AG. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/duke_leto_atreides.jpg" alt="4" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Duke Leto Astreides</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                With his Bene Gesserit concubine, Lady Jessica, he was father of Emperor Paul Atreides
+                                and Regent Alia. Grandfather of Leto Atreides II, the God-Emperor, and Ghanima.
+                                Duke of House Atreides and ruler of Caladan. He was well known because of his
+                                even-handed and compassionate leadership style. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/dr_wellington_yueh.jpg" alt="5" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Dr.Wellington Yueh</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Dr. Wellington Yueh (10082 AG-10191 AG) was a Suk doctor and agent of Baron Vladimir
+                                Harkonnen who served House Atreides as the personal physician of Leto Atreides I. He was
+                                a straight stick figure of a man with a squarish block of a head and black hair, with he
+                                wore long and caught in a Suk School silver ring at his left shoulder. He had a sallow
+                                complexion, up-angled cheeks, almond-shaped eyes like dark sequins, and a drooping
+                                mustache that hung like a curved frame around his purple lips and narrow chin. His
+                                forehead was tattooed with the black diamond of Imperial Conditioning. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/gurney_halleck.jpg" alt="6" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Gurney Halleck</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Gurney Halleck (b. 10135 AG) was Warmaster for House Atreides during the reign of Leto
+                                Atreides I, and then his son Paul.
+                                Along with Thufir Hawat and Duncan Idaho, Halleck was one of Paul's principal teachers
+                                during his early years on Caladan. He was a ruthless, yet noble and romantic warrior of
+                                enormous talent. Described as "an ugly lump of a man", he was regarded the most loyal of
+                                friends to those he loved, and to those he hated there were few enemies more terrifying.
+                                A traditionalist and purist at heart, Gurney Halleck did not indulge in melange
+                                addiction or other methods to prolong human life. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/baron_harkonnen.jpg" alt="7" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Baron Harkonnen</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Baron Vladimir Harkonnen (10110 AG - 10193 AG) was the penultimate ruler of House
+                                Harkonnen, and the chief architect in the demise of Duke Leto Atreides I of House
+                                Atreides during the latter part of the reign of Shaddam IV. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/duncan_idaho.jpg" alt="8" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Duncan Idaho</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Duncan Idaho (10148 AG - 10191 AG) was a swordmaster in the service of House Atreides,
+                                and one of Duke Leto's right-hand men, with Gurney Halleck and Thufir Hawat. Duncan
+                                Idaho was said to be very handsome. He had black, curly hair, a dark complexion, and
+                                green or blue eyes. During the days of the original Duncan Idaho, and during the time of
+                                the God Emperor, he was regarded as something of a ladies' man. </p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/rabban_harkonnen.jpg" alt="9" class="imgCarou">
+                        <div class="divDesc">
+                            <p class="titlePerso">Rabban Harkonnen</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Rabban is a family surname and the name of a House Minor. It was absorbed by the
+                                Harkonnen family.</p>
+                        </div>
+                    </div>
+                    <div class="divPersoCarou">
+                        <img src="medias/characters/stilgar.jpg" alt="10" class="imgCarou"">
+                        <div class="divDesc">
+                            <p class=" titlePerso">Stilgar</p>
+                            <hr class="hrDesc">
+                            <p class="Desc">
+                                Stilgar, full name Stilgar Ben Fifrawi, was the Naib, or leader of Sietch Tabr, a Fremen
+                                tribe of Arrakis during the Atreides Fiefdom.
+                                Stilgar lived a long and prestigious life, thanks in no small part to his diet of Spice
+                                Melange, a pervasive ingredient in all Fremen food and drink. Stilgar's descendants
+                                flourished well into the reign of Leto II the God-Emperor, and probably beyond. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ######## SPAN CARROUSSEL ###### -->
+                <div class="divSpanCrou">
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                    <span class="spanCarou"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ######## VIDEOS ET IMAGES ###### -->
+        <div class="videoImg divNormal parallax" style="background-position: 0px;" id="videoImg">
+            <!-- ######## CARROUSSEL ET FLECHE ###### -->
+            <div class="divVI">
+                <hr class="hrVI">
+                <!-- ######## FLECHE ###### -->
+                <div class="divNPVI">
+                    <div class="nextPrevVI">
+                        <div class="PrevVI">
+                            <p class="textPrevNextVI">Prev</p>
+                        </div>
+                        <div class="NextVI">
+                            <p class="textPrevNextVI">Next</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ######## CARROUSSEL ###### -->
+                <div class="divCarouVI">
+
+                    <!-- ######## IMAGE ET TEXTE PERSOONAGE ###### -->
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/02.jpg" alt="0" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/Dune02.webp" alt="1" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/04.jpg" alt="2" style="object-fit: top;" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/12.jpg" alt="3" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/13.jpg" alt="4" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/14.jpg" alt="5" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/07.jpg" alt="6" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/09.jpg" alt="7" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <img src="medias/images/10.jpg" alt="8" class="imgCarouVI">
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <div id="videoYTVI1"></div>
+                    </div>
+                    <div class="divPersoCarouVI">
+                        <div id="videoYTVI2"></div>
+                    </div>
+                </div>
+
+                <!-- ######## SPAN CARROUSSEL ###### -->
+                <div class="divSpanCrouVI">
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                    <span class="spanCarouVI"></span>
+                </div>
+            </div>
+            <div class="divVItext">
+                <p class="titleAbout titleVid">VIDEO & IMAGE</p>
+                <p class="resumeAbout resumeVI">ALL FILM ARCHIVES</p>
+            </div>
+        </div>
+
+
+        <!-- ######## CARTE ###### -->
+        <div class="carte divNormal parallax" style="background-position: 0px;" id="carte">
+            
+            <div class="divVItext">
+                <p class="titleAbout">MAP</p>
+                <p class="resumeAbout resumeVI">CINEMAS LIST</p>
+            </div>
+            
+            <div class="divCarte">
+
+                <!-- ######## POSITION ###### -->
+                <div class="divPosition">
+                    <p class="bPosition">Take my Position</p>
+                    <p class="pPosition"></p>
+                </div>
+
+                <!-- ######## CARTE ###### -->
+                    <div id="carteImg"></div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ######## FOOTER ###### -->
+    <footer class="footerSet">
+
+        <!-- ######## SVG HAUT ###### -->
+        <div class="fDivSVG1">
+
+            <a href="https://www.dunemovie.net/" class="svgWb">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+                <svg class="svgWb" xmlns:svg="http://www.w3.org/2000/svg" x="0px" y="0px" width="354.64999"
+                    height="370.16" viewBox="0 0 354.65 370.16001">
+
+                    <!-- Contour -->
+                    <path style="fill:currentColor"
+                        d="M 177.25826,3.4148925e-4 C 168.59542,1.8490915 92.354842,11.831561 82.863603,16.574651 c -2.187178,4.37941 -6.758533,18.04297 -8.208233,20.20488 -6.127129,1.31837 -30.956394,6.04126 -32.517223,6.94544 -0.873861,2.62662 -6.579213,13.84033 -7.892531,15.15364 -5.258319,1.31332 -29.7718853,5.85815 -32.8329239,8.05038 C -0.33502981,77.435521 -7.0076905,182.56657 36.771225,251.2985 80.550143,320.03044 157.11904,365.7806 177.25826,370.16001 l 0.15783,0 C 197.5553,365.7806 273.96636,320.03045 317.74528,251.2985 361.51915,182.56152 355.0195,77.435521 353.26166,66.928991 c -3.06609,-2.19223 -27.58469,-6.73706 -32.83293,-8.05038 -1.31332,-1.31331 -7.01363,-12.52702 -7.89252,-15.15364 -1.55578,-0.90418 -26.38,-5.63212 -32.51723,-6.94544 -1.4497,-2.16191 -6.016,-15.82547 -8.20824,-20.20488 C 262.34982,11.846711 186.04232,1.8844415 177.25825,3.4148925e-4 z m 0,26.83460951075 c 7.50611,1.60629 72.73251,10.32342 80.8195,14.36439 1.86391,3.74296 5.71294,15.35697 6.94544,17.20572 5.23811,1.12138 26.60603,5.06763 27.93956,5.84047 0.74757,2.24274 5.5033,11.98024 6.62971,13.10162 4.49053,1.12136 25.48087,4.91861 28.0974,6.78756 1.50022,8.98107 7.11214,98.789229 -30.30731,157.534909 -37.41943,58.75072 -102.75189,97.91788 -119.96645,101.65578 l -0.15783,0 C 160.04371,339.58749 94.711236,300.4153 57.291804,241.66962 19.877424,182.92394 25.489328,93.115781 26.984489,84.134711 c 2.621583,-1.874 23.606872,-5.6662 28.097407,-6.78756 1.126422,-1.12138 5.882144,-10.85888 6.629724,-13.10162 1.333523,-0.77284 22.543592,-4.71909 27.781707,-5.84047 1.237544,-1.84875 5.234326,-13.46276 7.103277,-17.20572 8.107206,-4.05612 73.256576,-12.78842 80.661656,-14.36439 z" />
+
+                    <!-- B -->
+                    <path style="fill:currentColor"
+                        d="m 189.25491,55.563751 c -2.4594,0.24246 -2.82617,1.96367 -2.84131,2.68346 -0.50512,84.082609 -0.26519,173.283359 -0.94711,259.664249 0.55562,2.7327 4.91357,-1.46739 7.41897,-2.84131 31.8934,-17.53279 131.36959,-113.87469 74.18979,-148.37957 43.78396,-28.63031 35.98109,-55.95362 16.57431,-70.874919 -40.1269,-30.868 -85.9086,-38.53196 -91.23764,-39.93621 -1.33226,-0.35105 -2.33722,-0.39651 -3.15701,-0.3157 z m 26.67674,34.56929 c 0.62131,-0.33844 26.34212,9.197 40.40976,18.784229 16.12853,10.99145 10.66818,21.55481 1.2628,27.93955 -5.10678,3.48029 -36.70973,26.17794 -41.98826,27.466 -0.1162,-4.3794 -0.13894,-53.76265 0.3157,-74.189779 z m 23.51975,96.131019 c 3.5236,0.10844 6.87091,1.23502 9.31319,3.78841 2.18212,2.08616 11.80089,12.45504 -8.68179,42.14611 -7.62733,13.46655 -23.62076,30.35656 -25.41394,32.04367 -0.21723,0.0606 -0.30686,-0.27403 -0.47356,-0.15785 0.1667,-9.65287 -0.0921,-56.38171 0.47356,-69.45426 1.13272,-0.59099 14.21168,-8.69141 24.78254,-8.36607 z" />
+
+                    <!-- W -->
+                    <path style="fill:currentColor"
+                        d="m 80.528675,85.840761 c -2.621583,1.12138 -24.953022,15.340569 -27.200816,17.583309 -0.621298,19.82098 4.692584,73.29824 24.266058,115.03646 2.475098,5.27852 5.162345,10.22872 8.071848,14.70915 5.581599,9.63772 5.894774,8.87499 12.390641,-0.35359 4.500634,-6.08672 10.991444,-15.11325 12.617944,-16.97209 2.24274,7.48085 16.74479,54.14401 37.14162,82.34497 9.04167,12.51187 22.92747,24.33172 22.87191,19.46235 -0.55563,-47.64815 -1.91946,-253.899539 -0.4243,-262.304759 -6.016,-0.14146 -25.75111,2.42963 -29.65571,4.45517 -0.32327,7.54146 2.71251,148.965509 0.84356,165.048589 -13.82519,-33.68153 -18.54302,-122.56277 -15.81032,-159.234629 -7.48085,1.49515 -25.725854,8.81437 -28.342386,11.43594 -3.364113,6.73328 1.227447,80.582119 6.005896,105.368449 -1.63154,2.57107 -6.334227,9.55186 -7.081807,10.67323 C 86.756829,176.06564 77.710095,123.42184 80.528675,85.840761 z" />
+                </svg>
+            </a>
+
+
+            <a href="" class="svgLeg">
+                <?xml  version="1.0" encoding="UTF-8" standalone="no"?>
+                <svg class="svgLeg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="150"
+                    viewBox="0 0 150 150">
+                    <g transform="matrix(1.4915682,0,0,1.4915682,-148.89472,1.1481795)">
+                        <!-- Supérieur gauche -->
+                        <path
+                            style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.6058948"
+                            d="M 126.23641,35.873974 V 25.701691 h 24.9541 V 19.32869 h -24.3277 c 1.43665,-3.629068 4.90912,-6.49555 7.19686,-8.068374 1.73624,-1.21877 3.48609,-2.1856143 5.10657,-2.934579 v 8.320305 h 6.3798 V 0.0054381 c -6.10064,0 -22.95912,7.6053794 -25.40347,19.6228419 -12.00384,2.437533 -19.54114,19.221122 -19.54114,25.335388 l 44.95142,-0.01363 V 28.391137 h -6.38661 V 38.549805 H 108.8945 c 0.73535,-1.579634 1.70219,-3.315868 2.90053,-5.018057 1.55921,-2.280933 4.43931,-5.760205 8.05476,-7.190044 v 9.532258 h 6.38662" />
+
+                        <!-- Supérieur droit -->
+                        <path
+                            style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.6058948"
+                            d="m 163.23928,25.63497 h 10.15186 v 24.940478 h 6.39343 V 26.261374 c 3.61544,1.43665 6.49555,4.909117 8.06837,7.183241 1.19834,1.736234 2.1788,3.492892 2.92777,5.113376 h -8.32711 v 6.393426 h 16.64741 c 0,-6.121076 -7.61219,-22.965939 -19.61603,-25.403478 C 177.04063,7.5236716 160.25704,-2.83444e-6 154.13597,-2.83444e-6 L 154.14961,44.951417 h 16.5657 V 38.557991 H 160.56346 V 8.2726363 c 1.57963,0.7625792 3.30905,1.708999 5.01805,2.8937237 2.28094,1.579634 5.76021,4.459737 7.19005,8.06838 h -9.53226 v 6.40023" />
+
+                        <!-- Inférieur droit -->
+                        <path
+                            style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.6058948"
+                            d="m 173.73771,62.89727 v 10.151858 h -24.94048 v 6.407041 h 24.29365 c -1.41623,3.608643 -4.8887,6.488745 -7.16282,8.061569 -1.73623,1.205149 -3.50651,2.165184 -5.127,2.914148 v -8.306684 h -6.37299 v 16.640604 c 6.12107,0 22.95913,-7.619 25.40347,-19.616032 12.00384,-2.451154 19.54795,-19.248357 19.54795,-25.349003 l -44.95823,0.0068 V 70.37328 h 6.3798 V 60.207794 h 30.27855 c -0.72854,1.593249 -1.68857,3.315862 -2.8801,5.018051 -1.57283,2.280933 -4.45293,5.760211 -8.06838,7.19005 v -9.518643 h -6.39342" />
+
+                        <!-- Inférieur gauche -->
+                        <path
+                            style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.6058948"
+                            d="M 136.48556,73.146459 H 126.32009 V 48.18555 h -6.38662 v 24.320884 c -3.62226,-1.429839 -6.48194,-4.909111 -8.07519,-7.190044 -1.19834,-1.736234 -2.15837,-3.492893 -2.92776,-5.106573 h 8.31349 v -6.39342 h -16.62699 c 0,6.107456 7.62581,22.96594 19.61604,25.410283 2.45115,11.997032 19.23474,19.554752 25.34219,19.554752 l -0.0204,-44.971845 h -16.54528 v 6.40023 h 10.16547 v 30.26493 c -1.60006,-0.748964 -3.31586,-1.688574 -5.02486,-2.880102 -2.28093,-1.593249 -5.77383,-4.452927 -7.18324,-8.081995 h 9.51864 v -6.366191" />
+                    </g>
+                </svg></a>
+        </div>
+
+        <!-- ######## SVG BAS ###### -->
+
+        <div class="fDivSVG2">
+            <a href="https://twitter.com/DuneMovie"><svg class="svgTwitter" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                    </path>
+                </svg>
+            </a>
+
+            <a href="https://www.instagram.com/dunemovie/"><svg class="svgInsta" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path fill="currentColor"
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                    </path>
+                </svg></a>
+
+            <a href="https://www.facebook.com/dune/"><svg class="svgFace" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512">
+                    <path fill="currentColor"
+                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                    </path>
+                </svg></a>
+
+        </div>
+    </footer>
+
+    <script src="./script/script.js"></script>
+
+</body>
+
+</html>

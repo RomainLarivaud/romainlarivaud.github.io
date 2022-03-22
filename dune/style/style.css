@@ -1,0 +1,1002 @@
+/* /////////////////////////////////////////// */
+/* //// PARAMETRE DE BASE - FONTS & HTML //// */
+/* ///////////////////////////////////////// */
+
+/* //// HTML //// */
+
+
+*, *:before, *:after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "DN";
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+.htmlSet{
+    scroll-snap-type: y mandatory;
+}
+
+.parallax{
+    background-position: 0px;
+}
+
+/* //// FONTS //// */
+
+
+@font-face{
+    font-family: "DN";
+    src: url(../fonts/DINNextLTPro-Light.ttf) format('truetype');
+}
+
+@font-face{
+    font-family: "DNB";
+    src: url(../fonts/DINNextLTPro-Black.ttf) format('truetype');
+}
+
+
+/* /////////////////////////////////////////// */
+/* //////////////// HEADER ////////////////// */
+/* ///////////////////////////////////////// */
+
+/* //// DUNE IMG TITLE //// */
+
+
+
+
+.duneTitle{
+    position: absolute;
+    margin : 2rem ;
+    width: 13vw;
+}
+
+
+/* //// MENU BURGER //// */
+
+
+.checkBurger{
+    display:none;
+}
+
+
+.navBurger{
+    position:fixed;
+    height: 100vh;
+    width:25vw;
+    left:-25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1vw;
+    z-index: 19;
+    background-color: rgb(7, 7, 7);
+    padding-left: 4rem;
+    letter-spacing: .5vw;
+}
+
+.lienMenuBurger{
+    transition: .2s;
+    color: white;
+    border: 1px solid  transparent;
+    width: max-content;
+}
+
+.divaBurger{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    position: relative;
+    padding: 1rem;
+    padding-right: .8rem;
+    width: max-content;
+}
+
+.lienMenuBurger:before{
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.lienMenuBurger:hover:before{
+    animation: contour .4s linear forwards;
+}
+
+@keyframes contour{
+    0%{
+        width: 0;
+        height: 0;
+        border-top-color: #fff;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    50%{
+        width: 100%;
+        height: 0;
+        border-top-color: #fff;
+        border-right-color: #fff;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+        border-top-color: #fff;
+        border-right-color: #fff;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+}
+
+
+.lienMenuBurger:after{
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.lienMenuBurger:hover:after{
+    animation: contour2 .4s linear forwards;
+}
+
+@keyframes contour2{
+    0%{
+        width: 0;
+        height: 0;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color:  #fff;
+        border-left-color: transparent;
+    }
+    50%{
+        width: 0;
+        height: 100%;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: #fff;
+        border-left-color: #fff;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: #fff;
+        border-left-color: #fff;
+    }
+}
+
+/* .lienMenuBurger:hover{
+    transition: .2s;
+    border: 1px solid white;
+} */
+
+
+/* //// ICONE MENU BURGER //// */
+  
+
+.divIconeMenuBurger{
+    cursor:pointer;
+    width : 2rem;
+    height: 1.75rem;
+    position: fixed;
+    margin: 5rem;
+    z-index: 19;
+}
+
+.barreMenuBurger{
+    width: 100%;
+    height: .14rem;
+    background-color:white;
+    border-radius: .1rem;
+    transition: .75s;
+}
+  
+.barreMilieuBurger{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+  
+
+/* //// ANIMATION ICONE BURGER //// */
+
+/* //// ANIMATION POUR PASSER DE BURGER A CROIX //// */
+
+
+#menu:checked~label>div>div:first-of-type{
+    animation: barreHautChecked .3s forwards;
+}
+
+#menu:checked~label>div>div:nth-of-type(2){
+    animation: barreMilieuChecked 1s forwards;
+}
+
+#menu:checked~label>div>div:last-of-type{
+    animation: barreBasChecked 1s forwards;
+}
+   
+
+@keyframes barreHautChecked{
+     100% {
+      transform: translateY(0.65rem) rotateZ(45deg);
+    }
+}
+   
+@keyframes barreMilieuChecked{
+    0% {
+        width:100%;
+    }
+    40% {
+        width: 0%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+@keyframes barreBasChecked{
+    40%{
+        transform: translateY(-0.65rem) rotateZ(-45deg);
+    }
+     100% {
+        transform: translateY(-0.65rem) rotateZ(-45deg);
+    }
+}
+
+
+/* //// ANIMATION POUR PASSER DE CROIX A BURGER //// */
+
+
+#menu~label>div>div:first-of-type{
+    animation: barreHaut 1s both;
+}
+#menu~label>div>div:nth-of-type(2){
+    animation: barreMilieu 1s both;
+}
+#menu~label>div>div:last-of-type{
+     animation: barreBas 1s both;
+}
+  
+@keyframes barreHaut{
+    0%{
+        transform: translateY(0.65rem) rotate(45deg);
+    }
+    50%{
+        transform: translateY(0rem)
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes barreMilieu{
+    0% {
+        width:0%;
+    }
+    75% {
+        width: 100%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+   
+@keyframes barreBas{
+    0%{
+        transform: translateY(-0.65rem) rotate(-45deg);
+    }
+    50%{
+        transform: translateY(0rem);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* /////////////////////////////////////////// */
+/* ////////////////// MAIN ////////////////// */
+/* ///////////////////////////////////////// */
+
+/* ///////////////////////////////////////// */
+/* //////////// EFFET PARRALAX ////////////// */
+
+
+.divNormal{
+    width: 100%;
+    height: 100vh;
+    background-size: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    scroll-snap-align: start;
+}
+
+
+/* ///////////////////////////////////////// */
+/* //////////// ACCUEIL ////////////// */
+
+
+.accueil{
+    background-image: url(../medias/images/accueilv2.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* //////////// VIDEO YOUTUBE ////////////// */
+
+
+.divVideo{
+    width: 50vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 13vw;
+}
+
+.divOnly{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 85vh;
+    width: 50vw;
+    padding-left: 5vw;
+}
+
+.titleDune{
+    width: 25vw;
+}
+
+.divVideohr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#videoYT{
+    width: 32vw;
+    height: calc(32vw * 357 / 640);
+    z-index: 30;
+}
+
+.hrVideo{
+    margin-top: 1rem;
+    width: 50%;
+    border: 1px solid white;
+}
+
+.pOnly{
+    padding-top: 0.5rem;
+    width: 35vw;
+    color: white;
+    font-family: "DN";
+    letter-spacing: 1.5rem;
+    text-align: justify;
+}
+
+
+/* /////////////// VIDEO REDUIT QUAND SCROLL ///////////// */
+
+
+.scroll {
+    position: fixed !important;
+    width: 30vw !important;
+    height: calc(30vw * 3 / 5) !important;
+    top: 5vh !important;
+    right: 5% !important;
+}
+
+
+/* ///////////////////////////////////////// */
+/* //////////// ABOUT ////////////// */
+
+
+.about{
+    background-image: url(../medias/images/bg_timo.jpg);
+    background-size: cover;
+    display: flex;
+}
+
+
+.divAbout{
+    width: 50%;
+    height: 100%;
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.divImgAbout{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 50vw;
+}
+
+.divAboutText{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imgAbout{
+    width: 35vw;
+    padding-top: 13vh;
+}
+
+.hrAbout{
+    border: 1px solid white;
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+.divHrAbout{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+.titleAbout{
+    color: white;
+    font-family: 'DN';
+    font-size: 4vw;
+    letter-spacing: 2.5vw;
+    width: 25vw;
+    height: 6.5vh;
+    margin-bottom: 1rem;
+}
+
+.resumeAbout{
+    color: white;
+    font-family: 'DN';
+    width: 35vw;
+    letter-spacing: 1rem;
+    padding-bottom: 5vh ;
+}
+
+.pAbout{
+    color: white;
+    width: 80%;
+    text-align: justify;
+}
+
+/* ///////////////////////////////////////// */
+/* //////////// PERSONNAGE ////////////// */
+
+
+.perso{
+    background-image: url(../medias/images/dune_bg_blue.jpg);
+    background-size: cover;
+    display: flex;
+}
+
+
+.titleCharc{
+    letter-spacing: 1.5vw;
+}
+
+.resumeCharc{
+    letter-spacing: 1.5vw;
+}
+
+/* /////////////// CARROUSEL ///////////// */
+
+.divDesc{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    position:absolute;
+    left: -35vw;
+    margin-top: 30vh;
+    align-items: center;
+}
+
+.Desc{
+    color:white;
+    text-align: justify;
+}
+
+.hrDesc{
+    width: 60%;
+    border: 1px solid white;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.divNP{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    height: 50%;
+}
+
+.nextPrev{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    padding-right:6rem ;
+    padding-left:6rem ;
+}
+
+.Prev{
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+    padding-right: .8rem;
+    padding-left: .8rem;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    letter-spacing: .2vw;
+}
+
+.Next{
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+    padding-right: .8rem;
+    padding-left: .8rem;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    letter-spacing: .2vw;
+}
+
+.Prev:hover{
+    transition: .3s;
+    border: 1px solid rgb(7, 7, 7);
+    color : rgb(7, 7, 7);
+}
+
+.Next:hover{
+    transition: .3s;
+    border: 1px solid rgb(7, 7, 7);
+    color : rgb(7, 7, 7);
+}
+
+.textPrevNext{
+    font-size: 1.5vw;
+    font-family: "DN";
+}
+
+
+.divCharc{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: right;
+    align-items: flex-end;
+    padding-top: 5vh;
+}
+
+.divCarou{
+    width: 35vw;
+    height: 80vh;
+    position: relative;
+    margin-right: 15vw;
+    margin-top: 5vh;
+}
+
+.divPersoCarou:not(:first-of-type){
+    display: none;
+}
+
+.divPersoCarou{
+    position: absolute;
+    top:0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.titlePerso{
+    color: white;
+    font-size: 2rem;
+    letter-spacing: .7vw;
+    text-align: center;
+    width: 35vw;
+    padding-left: .7vw;
+    height: 3.5vh;
+}
+
+.imgCarou{
+    position: absolute;
+    top:0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* /////////////// ROND SPAN CARROUSEL ///////////// */
+
+
+.divSpanCrou{
+    position: relative;
+     text-align: center;
+     margin-top: 2vh;
+     width: 35vw;
+     margin-right: 15vw;
+}
+
+.spanCarou{
+    display: inline-block;
+   width: 1vw;
+   height: 1vw;
+    margin-right: .5vw;
+    margin-left: .5vw;
+   border-bottom-left-radius: 50%;
+   border-bottom-right-radius: 50%;
+   border: 2px solid white;
+   cursor: pointer;
+   transition: .3s;
+}
+
+.spanCarou:hover{
+    border: 2px solid rgb(7,7,7);
+}
+
+
+/* ///////////////////////////////////////// */
+/* //////////// VIDEOS & IMAGES ////////////// */
+
+
+.videoImg{
+    background-image: url(../medias/images/duo_bg.jpg);
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+}
+
+.divVItext{
+    padding-left:5rem ;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.titleVid{
+    width: 60vw;
+    letter-spacing: .8vw;
+}
+
+.divNPVI{
+    display: flex;
+    align-items: flex-end;
+    height: 35%;
+    width: 100%;
+    position: absolute;
+}
+
+.nextPrevVI{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    padding-right:6rem ;
+    padding-left:5rem ;
+}
+
+.PrevVI{
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+    padding-right: .8rem;
+    padding-left: .8rem;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    letter-spacing: .2vw;
+}
+
+.NextVI{
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+    padding-right: .8rem;
+    padding-left: .8rem;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    letter-spacing: .2vw;
+}
+
+.PrevVI:hover{
+    transition: .3s;
+    border: 1px solid rgb(7, 7, 7);
+    color : rgb(7, 7, 7);
+}
+
+.NextVI:hover{
+    transition: .3s;
+    border: 1px solid rgb(7, 7, 7);
+    color : rgb(7, 7, 7);
+}
+
+.textPrevNextVI{
+    font-size: 1.5vw;
+    font-family: "DN";
+}
+
+
+.divVI{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding-top: 5vh;
+    position: absolute;
+    margin-top: 10vh;
+}
+
+.divCarouVI{
+    width: 60vw;
+    height: 60vh;
+    position: relative;
+    margin-top: 2vh;
+}
+
+.divPersoCarouVI:not(:first-of-type){
+    display: none;
+}
+
+.divPersoCarouVI{
+    position: absolute;
+    top:0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.imgCarouVI{
+    position: absolute;
+    top:0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.resumeVI{
+    letter-spacing: 1.4vw;
+}
+
+.hrVI{
+    border: 1px solid white;
+    width: 35vw;
+}
+
+#videoYTVI1{
+    z-index: 20;
+}
+
+#videoYTVI2{
+    z-index: 20;
+}
+
+
+/* /////////////// ROND SPAN CARROUSEL ///////////// */
+
+
+.divSpanCrouVI{
+    position: relative;
+    text-align: center;
+    width: 60vw;
+    padding-top: 3vh;
+    z-index: 20;
+}
+
+.spanCarouVI{
+    display: inline-block;
+    width: 1vw;
+    height: 1vw;
+    margin-right: .5vw;
+    margin-left: .5vw;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.spanCarouVI:hover{
+    border: 2px solid rgb(7,7,7);
+}
+
+
+
+/* ///////////////////////////////////////// */
+/* //////////// CARTE ////////////// */
+
+
+.carte{
+    background-image: url(../medias/images/dune_bg_pink.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+#carteImg{
+    position: relative;
+    width: 55vw;
+    height: 60vh;
+    left: 12vw;
+    margin-right: 3vw;
+}
+
+.divCarte{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.bPosition{
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+    padding-right: .8rem;
+    padding-left: .8rem;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    letter-spacing: .2vw;
+    margin-bottom: 1rem;
+}
+
+.bPosition:hover{
+    transition: .3s;
+    border: 1px solid rgb(7, 7, 7);
+    color : rgb(7, 7, 7);
+}
+
+.pPosition{
+    color: white;
+    width: 10vw;
+    position: absolute;
+    letter-spacing: .2vw;
+}
+
+.divPosition{
+    z-index: 15;
+}
+
+/* /////////////////////////////////////////// */
+/* ////////////////// FOOTER ////////////////// */
+/* ///////////////////////////////////////// */
+
+
+.footerSet{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5vw;
+    height: 100vh;
+    top :0;
+    right: 0;
+}
+
+
+/* /////////////// PARAMETRE DIV SVG ///////////// */
+
+
+.fDivSVG1{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.fDivSVG2{
+    margin-top: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* /////////////// SVG WARNERBROS ///////////// */
+
+
+.svgWb{
+    color: white;
+    width: 2vw;
+    height: 5vh;
+}
+
+.svgWb:hover{
+    transition: .3s;
+    color : rgb(7, 7, 7)
+}
+
+
+/* /////////////// SVG LEGENDARY ///////////// */
+
+
+.svgLeg{
+    color: white;
+    height: 5vh;
+    width: 2vw;
+    margin-top: .5rem;
+}
+
+.svgLeg:hover{
+    transition: .3s;
+    color : rgb(7, 7, 7)
+}
+
+
+/* /////////////// SVG TWITTER ///////////// */
+
+
+.svgTwitter{
+    color: white;
+    width: 2.3vw;
+}
+
+.svgTwitter:hover{
+    transition: .3s;
+    color : rgb(7, 7, 7)
+}
+
+
+/* /////////////// SVG INSTAGRAM ///////////// */
+
+
+.svgInsta{
+    color: white;
+    width: 2vw;
+    margin-top: 2vh;
+}
+
+.svgInsta:hover{
+    transition: .3s;
+    color : rgb(7, 7, 7)
+}
+
+
+/* /////////////// SVG FACEBOOK ///////////// */
+
+
+.svgFace{
+    color: white;
+    width: 1.3vw;
+    margin-top: 2vh;
+    margin-left: 0.3rem;
+}
+
+.svgFace:hover{
+    transition: .3s;
+    color : rgb(7, 7, 7)
+}
+
+
+
+@media screen and (max-width: 1400px){
+    .divDesc{
+        margin-top: 20vh;
+    }
+}

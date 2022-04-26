@@ -1,0 +1,639 @@
+body, *{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+body{
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+html{
+    scroll-snap-type: y mandatory;
+}
+
+a, a:visited{
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Sofia Pro Regular';
+    src: url('../src/fonts/Sofia\ Pro\ Regular\ Az.otf') format('opentype');
+}
+
+section, footer{
+    scroll-snap-align: center;
+}
+
+/* ########################### */
+/* ### PORTFOLIO CONTAINER ### */
+/* ########################### */
+
+section#portfolio-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #fffaf3, #ffe0b3), url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+section#portfolio-container .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+section#portfolio-container .title-container h1{
+    font-family: 'Telma-Bold';
+    font-size: 9.5em;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    color: #187B69;
+}
+
+section#portfolio-container .title-container h2{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #FC745C;
+}
+
+section#portfolio-container .decorations-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+section#portfolio-container .decorations-container .star-decoration{
+    position: absolute;
+    left: 20vw;
+    top: -20vh; 
+    width: 100px;
+}
+
+section#portfolio-container .decorations-container .star-decoration .path-1{
+    fill: rgba(0,0,0,0);
+}
+
+section#portfolio-container .decorations-container .star-decoration .path-2{
+    fill: #187B69;
+}
+
+section#portfolio-container .decorations-container .circle-decoration{
+    position: absolute;
+    width: 62.5vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+section#portfolio-container .decorations-container .circle-decoration ellipse{
+    fill : none;
+    stroke : #187B69;
+    stroke-width : 0.5;
+    stroke-miterlimit : 10;
+}
+
+/* # ARROW ANIMATION # */
+
+section#portfolio-container .arrow-scroll-container{
+    width: 100%;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+}
+  
+section#portfolio-container .arrow,
+section#portfolio-container .arrow::before{
+    position: absolute;
+    left: 50%
+}
+
+section#portfolio-container .arrow {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    margin: -20px 0 0 -20px;
+    -webkit-transform: rotate(45deg);
+    border-left: none;
+    border-top: none;
+    border-right: 2px #FC745C solid;
+    border-bottom: 2px #FC745C solid;
+}
+  
+section#portfolio-container .arrow::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    margin: -10px 0 0 -10px;
+    border-left: none;
+    border-top: none;
+    border-right: 1px #187B69 solid;
+    border-bottom: 1px #187B69 solid;
+    animation: arrow-animation 2s infinite;
+}
+
+@keyframes arrow-animation{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-10px, -10px);
+    }
+}
+
+/* ########################## */
+/* ### ABOUT ME CONTAINER ### */
+/* ########################## */
+
+
+section#about-me-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #ffa696, #FC745C), url(https://grainy-gradients.vercel.app/noise.svg);
+    position: relative;
+    padding: 0 5vw;
+}
+
+section#about-me-container .picture-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 15vh;
+    width: 50%;
+    height: 80%;
+}
+
+section#about-me-container .picture-container img{
+    border-radius: 500px;
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+    border: #187B69 2px solid;
+    padding: 10px;
+    z-index: 2;
+}
+
+section#about-me-container .title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -5vh;
+}
+
+section#about-me-container .letter{
+    color: rgba(0,0,0,0);
+    font-size: 300px;
+    font-weight: 800;
+    -webkit-text-stroke: #187B69 1.5px;
+}
+
+section#about-me-container .infos-container{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+section#about-me-container .infos-container p{
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding-right: 5vw;
+    color: #2a2a2a;
+}
+
+section#about-me-container .links-container{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+section#about-me-container .links-container a{
+    text-transform: uppercase;
+    padding: 7px 13px;
+    background: #187B69;
+    border-radius: 5px;
+    margin: 0 10px;
+    letter-spacing: 3px;
+    color: #FC745C;
+    font-weight: 700;
+    border: 0px solid;
+    transition: .1s;
+}
+
+section#about-me-container .links-container a:first-of-type{
+    margin: 0;
+    margin-right: 10px;
+}
+
+section#about-me-container .links-container a:hover{
+    transform: scale(1.05);
+    transition: .1s;
+}
+
+
+/* ########################### */
+/* ### DEV WORKS CONTAINER ### */
+/* ########################### */
+
+
+section#dev-works-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 5vw;
+    background: linear-gradient(to bottom, #2f9280, #187B69), url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+section#dev-works-container .title-container{
+    width: 100%;
+}
+
+section#dev-works-container .title-container h2{
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-family: 'Sofia Pro Regular';
+    padding-top: 5vh;
+    color: #ffe0b3;
+    position: relative;
+    width: 100%;
+    letter-spacing: 1vw;
+}
+
+section#dev-works-container .title-container h2:before{
+    content: "";
+    position: absolute;
+    width: 42.5vw;
+    height: 1.5px;
+    right: 0;
+    top: 60%;
+    background-color: #ffe0b3;
+}
+
+section#dev-works-container .works-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2.5vw;
+}
+
+section#dev-works-container .works-container .work-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 29vh;
+    border: #ffe0b3 solid 1px;
+    border-radius: 10px;
+    color: #ffe0b3;
+    margin-top: 5vh;
+    z-index: 2;
+}
+
+section#dev-works-container .works-container .work-container .infos-container{
+    display: flex;
+    height: 70%;
+    margin-bottom: 2.5%;
+    position: relative;
+}
+
+section#dev-works-container .works-container .work-container .infos-container img{
+    width: calc(100% - 20px);
+    height: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    filter:  brightness(0.3);
+}
+
+section#dev-works-container .works-container .work-container .infos-container .texts-container{
+    padding: 10px 20px;
+    width : 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: 3;
+}
+
+section#dev-works-container .works-container .work-container .infos-container .texts-container p{
+    font-size: 0.75em;
+    line-height: 1.3;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .2s linear;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding: 0 30px;
+}
+
+section#dev-works-container .works-container .work-container .infos-container .texts-container h3{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity .2s linear;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding: 0 30px;
+}
+
+section#dev-works-container .works-container .work-container .infos-container .texts-container:hover p{
+    visibility: visible;
+    opacity: 1;
+}
+
+section#dev-works-container .works-container .work-container .infos-container .texts-container:hover h3{
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+section#dev-works-container .works-container .work-container .works-link{
+    width: 100%;
+    height: 25%;
+    padding: 10px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+section#dev-works-container .works-container .work-container a{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ffe0b3;
+    color: #ffe0b3;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px;
+    font-size: .8vw;
+}
+
+section#dev-works-container .works-container .work-container a:hover{
+    background: #ffe0b3;
+    color: #187B69;
+    transition: .1s;
+    transform: translateY(2px);
+}
+
+section#dev-works-container .works-container .work-container .decorations-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+}
+
+section#dev-works-container .works-container .work-container .decorations-container svg{
+    width: 5vw;
+    position: absolute;
+    right: -5vw;
+    top: 0;
+    transform: translate(-50%,-50%);
+}
+
+section#dev-works-container .works-container .work-container .decorations-container path{
+    fill: #ffe0b3;
+}
+
+/* ############################## */
+/* ### DESIGN WORKS CONTAINER ### */
+/* ############################## */
+
+
+section#design-works-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 5vw;
+    background: linear-gradient(to bottom, #187B69, #136253), url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+section#design-works-container .title-container{
+    width: 100%;
+}
+
+section#design-works-container .title-container h2{
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-family: 'Sofia Pro Regular';
+    padding-top: 5vh;
+    color: #ffe0b3;
+    position: relative;
+    width: 100%;
+    letter-spacing: 1vw;
+    text-align: end;
+}
+
+section#design-works-container .title-container h2:after{
+    content: "";
+    position: absolute;
+    width: 30vw;
+    height: 1.5px;
+    left: 0;
+    top: 60%;
+    background-color: #ffe0b3;
+}
+
+section#design-works-container .works-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2.5vw;
+}
+
+section#design-works-container .works-container .work-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 29vh;
+    border: #ffe0b3 solid 1px;
+    border-radius: 10px;
+    color: #ffe0b3;
+    margin-top: 5vh;
+    z-index: 2;
+}
+
+section#design-works-container .works-container .work-container .infos-container{
+    display: flex;
+    height: 70%;
+    margin-bottom: 2.5%;
+    position: relative;
+}
+
+section#design-works-container .works-container .work-container .infos-container img{
+    width: calc(100% - 20px);
+    height: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    filter:  brightness(0.3);
+}
+
+section#design-works-container .works-container .work-container .infos-container .texts-container{
+    padding: 10px 20px;
+    width : 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: 3;
+}
+
+section#design-works-container .works-container .work-container .infos-container .texts-container p{
+    font-size: 0.75em;
+    line-height: 1.3;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .2s linear;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding: 0 30px;
+}
+
+section#design-works-container .works-container .work-container .infos-container .texts-container h3{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity .2s linear;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding: 0 30px;
+}
+
+section#design-works-container .works-container .work-container .infos-container .texts-container:hover p{
+    visibility: visible;
+    opacity: 1;
+}
+
+section#design-works-container .works-container .work-container .infos-container .texts-container:hover h3{
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+section#design-works-container .works-container .work-container .works-link{
+    width: 100%;
+    height: 25%;
+    padding: 10px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+section#design-works-container .works-container .work-container a{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ffe0b3;
+    color: #ffe0b3;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px;
+    font-size: .8em;
+}
+
+section#design-works-container .works-container .work-container a:hover{
+    background: #ffe0b3;
+    color: #187B69;
+    transition: .1s;
+    transform: translateY(2px);
+}
+
+section#design-works-container .works-container .work-container .decorations-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+}
+
+section#design-works-container .works-container .work-container .decorations-container svg{
+    width: 5vw;
+    position: absolute;
+    right: -5vw;
+    top: 0;
+    transform: translate(-50%,-50%);
+}
+
+section#design-works-container .works-container .work-container .decorations-container path{
+    fill: #ffe0b3;
+}
+
+/* ############## */
+/* ### FOOTER ### */
+/* ############## */
+
+
+footer{
+    width: 100%;
+    height: 10vh;
+    background-color: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer h3{
+    color: #fffaf3;
+    font-size: 12px;
+    font-weight: 200;
+}
